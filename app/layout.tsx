@@ -8,7 +8,8 @@ import "@fontsource/nunito-sans/500.css";
 import "@fontsource/nunito-sans/700.css";
 import "./globals.css";
 import { PenyediaSistem } from "@/lib/useSistem";
-import { Header } from "@/components/Kerangka";
+import { Footer, Header } from "@/components/Kerangka";
+import { Animasi } from "@/components/Animasi";
 
 export const metadata: Metadata = {
   title: "Sistem Pendaftaran & Penanganan Kendala Fusionify",
@@ -30,6 +31,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <PenyediaSistem>
           <Header />
           <main>{children}</main>
+          <Footer />
+          <Animasi />
         </PenyediaSistem>
       </body>
     </html>

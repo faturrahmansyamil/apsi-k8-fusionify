@@ -51,6 +51,8 @@ Data store (localStorage): `D1_data_pendaftaran`, `D2_data_pelanggan`, `D3_data_
 
 Mengikuti DESIGN.md "Duolingo" di Refero Styles (styles.refero.design/style/7088d695-362b-4e09-b325-fa8136d4f350), tanpa maskot/ilustrasi dan tanpa logo atau nama Duolingo. Token: hijau `#58cc02`, hijau muda `#d7ffb8`, biru `#1cb0f6`, teks `#4b4b4b`/`#777777`, garis `#afafaf`, radius 12px, garis 2px, tanpa bayangan. Font asli diganti Nunito (judul) dan Nunito Sans (teks) sesuai saran DESIGN.md, disimpan lokal lewat paket @fontsource (lisensi SIL OFL) supaya tidak butuh internet saat jalan. Warna merah, kuning, dan biru muda untuk status/pesan gagal adalah tambahan kita karena tidak ada di DESIGN.md. Semua token ada di `app/globals.css`.
 
+Animasi: GSAP (`components/Animasi.tsx`), hanya animasi masuk yang halus (judul dan kartu muncul dari bawah, baris tabel berurutan, panel rincian bergeser masuk, pesan berhasil/gagal muncul). Tidak mengubah alur UC. Otomatis mati bila perangkat disetel "kurangi animasi".
+
 Mode gelap: tambahan kita (DESIGN.md Duolingo hanya tema terang). Bawaan mengikuti setelan perangkat; tombol ☾/☀ di header menyimpan pilihan di browser. Warna hijau dan biru utama tetap sama di kedua mode.
 
 ## Struktur

@@ -28,7 +28,10 @@ export function Header() {
   return (
     <header className="atas">
       <div className="isi">
-        <Link href="/" className="merek">Sistem Pendaftaran & Penanganan Kendala Fusionify</Link>
+        <Link href="/" className="merek" aria-label="Sistem Pendaftaran & Penanganan Kendala Fusionify, beranda">
+          <small>Sistem Pendaftaran & Penanganan Kendala</small>
+          <b>Fusionify</b>
+        </Link>
         <nav aria-label="Menu utama">
           {[...menu, { href: "/notifikasi", label: "Notifikasi" }].map((m) => (
             <Link key={m.href} href={m.href} className={path === m.href ? "aktif" : undefined}>
@@ -47,6 +50,17 @@ export function Header() {
         </div>
       </div>
     </header>
+  );
+}
+
+export function Footer() {
+  return (
+    <footer className="bawah">
+      <div className="isi">
+        <span>PT Fusionify Digital Store</span>
+        <span>Draft aplikasi · APSI Kelompok 8</span>
+      </div>
+    </footer>
   );
 }
 

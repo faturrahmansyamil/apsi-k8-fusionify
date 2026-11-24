@@ -24,6 +24,9 @@ export default function Beranda() {
       <div className="judul-halaman">
         <div className="uc">PT Fusionify Digital Store · APSI Kelompok 8</div>
         <h1 className="tampilan">Sistem Pendaftaran dan Penanganan Kendala Pelanggan</h1>
+        <p className="lead">
+          Pelanggan UMKM mendaftar, membaca panduan bot, dan melaporkan kendala. Owner/Admin memverifikasi pendaftaran dan menangani laporannya.
+        </p>
       </div>
 
       <div className="grid2">
