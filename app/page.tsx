@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useSistem } from "@/lib/useSistem";
 import { bacaD1, bacaD2, bacaD3 } from "@/lib/sistem";
-import { bacaGangguan, isiDataContoh, kosongkanSemua, simpanGangguan } from "@/lib/demo";
+import { bacaGangguan, kosongkanSemua, simpanGangguan } from "@/lib/demo";
 
 export default function Beranda() {
   const { siap, st, setSesi, segarkan } = useSistem();
@@ -82,7 +82,6 @@ export default function Beranda() {
         <summary>Panel demo (untuk presentasi dan video)</summary>
         <p className="kecil">Login di atas masih berupa pilihan peran, belum login sungguhan.</p>
         <div className="tombol">
-          <button className="sekunder" onClick={() => { isiDataContoh(st); segarkan(); }}>Isi data contoh</button>
           <button className="sekunder" onClick={() => { kosongkanSemua(st); segarkan(); }}>Kosongkan semua data</button>
         </div>
         <label className="demo-saklar">

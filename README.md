@@ -8,7 +8,7 @@ Alur mengikuti tabel Use Case final di Laporan 4 (Activity Diagram) dan data sto
 ```
 npm install
 npm run dev      # buka http://localhost:3000
-npm test         # 19 tes logika (alur sukses + gagal)
+npm test         # 18 tes logika (alur sukses + gagal)
 npm run build
 ```
 
@@ -16,7 +16,7 @@ npm run build
 
 https://faturrahmansyamil.github.io/apsi-k8-fusionify/
 
-Setiap push ke branch `main`, GitHub Actions (`.github/workflows/deploy.yml`) menjalankan tes, membangun versi statis (`out/`), lalu memasangnya ke GitHub Pages. Data tetap tersimpan di browser masing-masing pengunjung; buka "Panel demo" di beranda untuk mengisi data contoh.
+Setiap push ke branch `main`, GitHub Actions (`.github/workflows/deploy.yml`) menjalankan tes, membangun versi statis (`out/`), lalu memasangnya ke GitHub Pages. Data tetap tersimpan di browser masing-masing pengunjung; data awal kosong, isi lewat form Daftar lalu verifikasi sebagai Owner/Admin.
 
 ## Peta Use Case → halaman → kode
 
@@ -63,6 +63,6 @@ components/     header, penjaga peran, kolom form
 lib/types.ts    struktur D1, D2, D3
 lib/sistem.ts   logika UC-01, 02, 04, 05, 06
 lib/panduan.ts  materi UC-03 (statis, tanpa data store)
-lib/demo.ts     sesi simulasi, data contoh, saklar gangguan
+lib/demo.ts     sesi simulasi, kosongkan data, saklar gangguan
 tests/          tes alur sukses dan gagal
 ```

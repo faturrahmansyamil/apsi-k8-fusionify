@@ -6,7 +6,6 @@ import {
   PESAN_STATUS_GAGAL, setujuiPendaftaran, tolakPendaftaran,
 } from "@/lib/sistem";
 import { ambilMateri, PESAN_MATERI_GAGAL } from "@/lib/panduan";
-import { isiDataContoh } from "@/lib/demo";
 
 let st: Penyimpanan;
 beforeEach(() => { st = penyimpananMemori(); });
@@ -168,13 +167,3 @@ describe("UC-06 Perbarui Status Laporan", () => {
   });
 });
 
-describe("Data contoh", () => {
-  it("mengisi D1 (4), D2 (2), D3 (2) dengan satu pendaftaran menunggu dan satu ditolak", () => {
-    isiDataContoh(st);
-    expect(bacaD1(st)).toHaveLength(4);
-    expect(bacaD2(st)).toHaveLength(2);
-    expect(bacaD3(st)).toHaveLength(2);
-    expect(daftarPendaftaranBaru(st)).toHaveLength(1);
-    expect(bacaD1(st).filter((p) => p.status === "Ditolak")).toHaveLength(1);
-  });
-});
