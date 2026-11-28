@@ -49,6 +49,7 @@ export interface LaporanKendala {
  */
 export interface NotifikasiSimulasi {
   id: string;
+  idPendaftaran: string;
   tujuan: string;
   namaToko: string;
   judul: string;

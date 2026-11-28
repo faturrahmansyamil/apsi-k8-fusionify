@@ -25,7 +25,7 @@ Setiap push ke branch `main`, GitHub Actions (`.github/workflows/deploy.yml`) me
 | UC-01 Daftar Pelanggan | `/daftar` | Pelanggan UMKM | `daftarPelanggan` | 5a: kolom wajib kosong → tidak masuk D1, kolom ditandai, "Pendaftaran gagal, data belum lengkap" |
 | UC-02 Verifikasi Pendaftaran | `/admin/verifikasi` | Owner/Admin | `setujuiPendaftaran`, `tolakPendaftaran` | 4a: tolak + alasan → D1 "Ditolak", tidak masuk D2, info ditolak + alasan |
 | UC-03 Akses Panduan Bot | `/panduan` | Pelanggan UMKM | `ambilMateri` (`lib/panduan.ts`) | 4a: materi belum tersedia → "Materi tidak dapat ditampilkan", kembali ke daftar |
-| UC-04 Kirim Laporan Kendala | `/laporan` | Pelanggan UMKM | `kirimLaporan` | 5a: kolom wajib kosong → tidak disimpan ke D3, "Laporan belum lengkap" |
+| UC-04 Kirim Laporan Kendala | `/laporan` | Pelanggan UMKM | `kirimLaporan` | 5a: kolom wajib kosong → tidak disimpan ke D3, "Info laporan belum lengkap" |
 | UC-05 Lihat Dashboard Kendala | `/admin/dashboard` | Owner/Admin | `daftarLaporan`, `detailLaporan` | 2a: D3 kosong → "Belum ada laporan kendala" |
 | UC-06 Perbarui Status Laporan | `/admin/dashboard` (panel rincian) | Owner/Admin | `perbaruiStatus` | 5a: gagal simpan → perubahan tidak tersimpan ke D3, minta simpan ulang |
 
@@ -42,7 +42,7 @@ Data store (localStorage): `D1_data_pendaftaran`, `D2_data_pelanggan`, `D3_data_
 ## Yang masih simulasi (sebut di video demo)
 
 - Login: pilih peran di beranda (pelanggan dipilih dari D2), belum ada login sungguhan.
-- Notifikasi ke pelanggan (UC-02) hanya dicatat di `/notifikasi`, belum dikirim ke WhatsApp/Telegram.
+- Notifikasi ke pelanggan (UC-02) hanya dicatat di `/notifikasi`, belum dikirim ke WhatsApp/Telegram. Pelanggan hanya melihat notifikasinya sendiri; Owner/Admin melihat log semua pesan.
 - Bukti pendukung (UC-04): hanya nama file yang disimpan.
 - Gangguan koneksi (UC-06 5a): dipicu lewat centang "simulasi gangguan koneksi" di beranda atau panel rincian dashboard.
 - Data tersimpan di localStorage browser masing-masing, belum ada server/database bersama.

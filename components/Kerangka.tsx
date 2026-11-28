@@ -10,10 +10,12 @@ const MENU = {
   admin: [
     { href: "/admin/verifikasi", label: "Verifikasi Pendaftaran" },
     { href: "/admin/dashboard", label: "Dashboard Kendala" },
+    { href: "/notifikasi", label: "Notifikasi" },
   ],
   pelanggan: [
     { href: "/panduan", label: "Pusat Panduan" },
     { href: "/laporan", label: "Laporan Kendala" },
+    { href: "/notifikasi", label: "Notifikasi" },
   ],
   tamu: [{ href: "/daftar", label: "Daftar" }],
 };
@@ -33,7 +35,7 @@ export function Header() {
           <b>Fusionify</b>
         </Link>
         <nav aria-label="Menu utama">
-          {[...menu, { href: "/notifikasi", label: "Notifikasi" }].map((m) => (
+          {menu.map((m) => (
             <Link key={m.href} href={m.href} className={path === m.href ? "aktif" : undefined}>
               {m.label}
             </Link>

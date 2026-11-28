@@ -29,10 +29,11 @@ export const bacaD2 = (st: Penyimpanan) => st.baca<Pelanggan[]>(KUNCI.D2, []);
 export const bacaD3 = (st: Penyimpanan) => st.baca<LaporanKendala[]>(KUNCI.D3, []);
 export const bacaNotifikasi = (st: Penyimpanan) => st.baca<NotifikasiSimulasi[]>(KUNCI.NOTIFIKASI, []);
 
-function kirimNotifikasi(st: Penyimpanan, tujuan: string, namaToko: string, judul: string, isiPesan: string) {
+function kirimNotifikasi(st: Penyimpanan, idPendaftaran: string, tujuan: string, namaToko: string, judul: string, isiPesan: string) {
   const semua = bacaNotifikasi(st);
   const baru: NotifikasiSimulasi = {
     id: idBerikut("NTF", semua),
+    idPendaftaran,
     tujuan,
     namaToko,
     judul,
@@ -120,7 +121,7 @@ export function setujuiPendaftaran(st: Penyimpanan, id: string): Hasil<Pelanggan
   };
   st.tulis(KUNCI.D1, d1);
   st.tulis(KUNCI.D2, [...d2, pelanggan]);
-  kirimNotifikasi(st, p.kontak, p.namaToko, "Verifikasi pendaftaran berhasil",
+  kirimNotifikasi(st, p.id, p.kontak, p.namaToko, "Verifikasi pendaftaran berhasil",
     "Pendaftaran Anda telah terverifikasi. Akun pelanggan Anda sudah aktif.");
   return { ok: true, data: pelanggan, pesan: "Pendaftaran terverifikasi dan pelanggan aktif tersimpan di D2." };
 }
@@ -134,7 +135,7 @@ export function tolakPendaftaran(st: Penyimpanan, id: string, alasan: string): H
   const p = { ...d1[idx], status: "Ditolak" as const, alasanPenolakan: isi(alasan), diperbaruiPada: sekarang() };
   d1[idx] = p;
   st.tulis(KUNCI.D1, d1);
-  kirimNotifikasi(st, p.kontak, p.namaToko, "Pendaftaran ditolak",
+  kirimNotifikasi(st, p.id, p.kontak, p.namaToko, "Pendaftaran ditolak",
     `Pendaftaran Anda ditolak. Alasan: ${p.alasanPenolakan}. Silakan perbaiki data dan ajukan ulang.`);
   return { ok: true, data: p, pesan: "Pendaftaran ditolak. Info penolakan beserta alasan dikirim ke pelanggan." };
 }
@@ -147,7 +148,7 @@ export interface InputLaporan {
 }
 
 export const KATEGORI_KENDALA = ["Payment gateway", "Produk terkirim ganda", "Lainnya"];
-export const PESAN_LAPORAN_GAGAL = "Laporan belum lengkap";
+export const PESAN_LAPORAN_GAGAL = "Info laporan belum lengkap";
 
 /** Langkah 5: validasi. Kolom wajib: kategori dan deskripsi kronologi. Bukti pendukung opsional. */
 export function validasiLaporan(input: InputLaporan): Record<string, string> {
@@ -194,7 +195,7 @@ export const detailLaporan = (st: Penyimpanan, nomorTiket: string) =>
 
 // ---------- UC-06 Perbarui Status Laporan ----------
 export const PESAN_STATUS_GAGAL =
-  "Pembaruan status gagal disimpan, perubahan tidak tersimpan ke D3. Silakan coba simpan ulang.";
+  "Pembaruan status gagal disimpan. Silakan coba simpan ulang.";
 
 /** Langkah 5, alternatif 5a. Jika gagal simpan, D3 tidak berubah. */
 export function perbaruiStatus(

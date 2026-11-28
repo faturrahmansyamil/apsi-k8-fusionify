@@ -59,6 +59,7 @@ describe("UC-02 Verifikasi Pendaftaran", () => {
     expect(bacaD1(st)[0].status).toBe("Terverifikasi");
     expect(bacaD2(st)).toHaveLength(1);
     expect(bacaNotifikasi(st)[0].judul).toMatch(/berhasil/);
+    expect(bacaNotifikasi(st)[0].idPendaftaran).toBe(r.data.id);
     expect(daftarPendaftaranBaru(st)).toHaveLength(0);
   });
 
